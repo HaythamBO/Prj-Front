@@ -1,0 +1,76 @@
+.main-content {
+  
+  min-height: 100vh; 
+  overflow-x: hidden;
+}
+:host {
+  display: block;
+  background-color: #050653;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body {
+ 
+  color: white; 
+}
+
+.bg-black {
+  background-color: black !important;
+}
+
+.film-fiesta-logo {
+  font-weight: bold;
+  font-size: 2.2rem; 
+  padding-right: 100px;
+  text-align: right; 
+
+}
+
+.film {
+  color: white; 
+}
+
+.fiesta {
+  color: #DAA520  ; 
+  font-weight: bold; 
+}
+body {
+  background-color: black;
+  color: white;
+}
+
+.navbar{
+  background-color: #15163b;
+}
+.navbar-brand {
+  font-weight: bold;
+  font-size: 2.2rem;
+  padding-right: 40px;
+  text-align: right;
+  color: white;
+}
+
+.navbar-nav .nav-item .nav-link {
+  font-size: 1.2rem;
+  padding: 8px 20px;
+  color: #9c9c9c;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: #ffcc00;
+}
+
+.active .nav-link {
+  color: #ffcc00 !important;
+  font-weight: bold;
+}
+
+.film {
+  color: white;
+}
+
+.fiesta {
+  color: #CFB53B;
+  font-weight: bold;
+}

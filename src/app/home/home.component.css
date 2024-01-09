@@ -1,0 +1,72 @@
+.container {
+  padding-top: 20px;
+  background-color: #262758; 
+  color: #fff; 
+}
+
+.d-flex {
+  margin-bottom: 20px;
+}
+
+
+.custom-input,
+.custom-select {
+  height: 40px;
+  line-height: 1.5;
+  border: none;
+  border-radius: 4px;
+  padding: 8px;
+  width: 500px;
+  flex-grow: 1;
+  color: #3d4afc;
+  background-color: rgb(152, 142, 187);
+}
+
+.custom-btn {
+  background-color: #2a4372;
+  color: #fff;
+  border-radius: 4px; 
+  padding: 8px 20px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.custom-btn:hover {
+  background-color: #1e1f44; 
+}
+
+
+@media (max-width: 576px) {
+  .d-flex {
+    flex-direction: column;
+  }
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px; 
+}
+
+.pagination-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2c2d7a; 
+  color: #fff;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-span {
+  font-size: 18px;
+  margin: 0 10px;
+}

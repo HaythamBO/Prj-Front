@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Film Details</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="movie-poster-container">
+        <img class="movie-poster" src="https://image.tmdb.org/t/p/w500/{{ filmdetails.poster_path }}"
+             alt="{{ filmdetails.title }}" />
+      </div>
+    </div>
+    <div class="col-md-8">
+      <h2 class="mb-4">{{ filmdetails.title }}</h2>
+      <p class="lead"><strong>Release Date:</strong> {{ filmdetails.release_date }}</p>
+      <p><strong>Overview:</strong> {{ filmdetails.overview }}</p>
+      <p><strong>Runtime:</strong> {{ filmdetails.runtime }} minutes</p>
+      <p><strong>Popularity:</strong> {{ filmdetails.popularity }}</p>
+      <p><strong>Vote Average:</strong> {{ filmdetails.vote_average }}</p>
+      <p><strong>Budget:</strong> {{ filmdetails.budget }}$</p>
+      <div *ngFor="let gn of genre" class="d-inline-block mr-2">
+        <span class="badge badge-primary">{{ gn.name }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8">
+      <h3 class="mb-3"></h3>
+      <form (ngSubmit)="submit_commentaire()">
+        <div class="mb-3">
+          <label for="nom" class="form-label" >Title</label>
+          <input type="text" class="form-control" id="nom" [(ngModel)]="formData.nom" name="nom" required placeholder="Enter a Title"  >
+        </div>
+        <div class="mb-3">
+          <label for="comment" class="form-label">Leave a Comment:</label>
+          <div class="ngx-editor-container">
+            <ngx-editor-menu [editor]="editor" class="ngx-editor-content"></ngx-editor-menu>
+            <ngx-editor
+
+              style="height: 200px"
+              [editor]="editor"
+              [ngModel]="html"
+              [disabled]="false"
+              id="comment"
+              [(ngModel)]="formData.comment"
+              name="comment"
+              [placeholder]="'Type here...'"
+            ></ngx-editor>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="form.valid" (click)="onAddComment()" >Submit Comment</button>
+      </form>
+    </div>
+
+  </div>
+  <div class="container mt-4 mb-4">
+    <h3 class="form-label">Comments Section</h3>
+    <div class="comment-section">
+      <div *ngFor="let comment of commentaireFiltred" class="comment">
+        <div class="comment-header">
+          <strong>{{ comment.name }}</strong>
+          <button type="button" class="btn btn-danger" (click)="deleteComment(comment.id)">
+            Delete
+          </button>
+        </div>
+        <div class="comment-body">
+          <p [innerHTML]="sanitizeHTML(comment.commentaire)"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

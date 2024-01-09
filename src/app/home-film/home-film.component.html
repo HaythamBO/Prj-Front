@@ -1,0 +1,16 @@
+<div class="movie-card">
+  <div class="movie-poster">
+    <img class="poster-img" [src]="getUrl(film.poster_path)" alt="{{ film.title }}">
+    <div class="overlay">
+      <a [routerLink]="['/details', film.id]" class="btn detail btn-primary">Details</a>
+    </div>
+  </div>
+  <div class="movie-details">
+    <h3 class="movie-title">{{ film.title }}</h3>
+    <p class="release-date">Release Date: {{ film.release_date }}</p>
+    <p class="vote-average">Vote Average: {{ film.vote_average }}</p>
+    <button mat-icon-button (click)="toggleFavorite(film)">
+      <mat-icon  class="text-danger">{{ film.favorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+    </button>
+  </div>
+</div>
